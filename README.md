@@ -37,12 +37,13 @@ Managers using the application can:
 
 ##Users who are not logged in to the application can ONLY:  
 
-1. Logging of the Service layer with logback.
+1. Attempt to log in.
 
-2. Test Suites for the Service layer with JUnit
+2. Register for a new account (create new User)
 
-3. Log out 
+Users should not be able to access the other user stories before logging in.
 
 ##Database Architecture
+![Database schema](./resources/ER_reimbursement.png)
 
 
