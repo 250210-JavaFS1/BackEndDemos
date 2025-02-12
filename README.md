@@ -44,6 +44,7 @@ Managers using the application can:
 Users should not be able to access the other user stories before logging in.
 
 ##Database Architecture
-![Database schema](./resources/ER_reimbursement.png)
+![Database schema](BackEndDemos/src/main
+/resources/ER_reimbursement.png)
 
 
