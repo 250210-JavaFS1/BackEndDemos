@@ -1,14 +1,36 @@
 package com.revature.P1DemoBackend.mapper;
 
-import com.revature.P1DemoBackend.dto.UserDto;
+import com.revature.P1DemoBackend.dto.UserDTO;
 import com.revature.P1DemoBackend.model.User;
-import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
+import org.springframework.stereotype.Component;
 
-@Mapper(componentModel="spring")
-public interface UserMapper {
-    @Mapping(source="userDto.username",target = "username")
-    User userDtoToUser(UserDto userDto);
-    @Mapping(source="user.username",target = "username")
-    UserDto userToUserDto(User user);
+@Component
+public class UserMapper {
+    // Entity to DTO
+    public UserDTO userToUserDto(User user) {
+        if (user == null) {
+            return null;
+        }
+        return new UserDTO(
+                user.getUserId(),
+                user.getFirstName(),
+                user.getLastName(),
+                user.getUsername(),
+                user.getRole()
+        );
+    }
+
+    // DTO to Entity
+    public User userDtoToUser(UserDTO userDTO) {
+        if (userDTO == null) {
+            return null;
+        }
+        User user = new User();
+        user.setUserId(userDTO.getUserId());
+        user.setFirstName(userDTO.getFirstName());
+        user.setLastName(userDTO.getLastName());
+        user.setUserName(userDTO.getUsername());
+        user.setRole(userDTO.getRole());
+        return user;
+    }
 }
